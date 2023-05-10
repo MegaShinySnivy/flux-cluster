@@ -15,3 +15,6 @@ resources:
   - ./stakater.yaml
   - ./weave-gitops.yaml
   - ./csi-driver-nfs.yaml
+  - ./itzg.yaml
+  - ./rook-ceph.yaml
+  - ./piraeus.yaml
