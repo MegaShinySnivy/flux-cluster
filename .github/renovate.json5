@@ -17,10 +17,10 @@
     "helpers:pinGitHubActionDigests"
   ],
   "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+  "dependencyDashboardTitle": "Renovate Dashboard :snake:",
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
-  "schedule": ["every saturday"],
+  "schedule": ["after 10pm, before 5:00am"],
   "pre-commit": {
     "enabled": true
   },
