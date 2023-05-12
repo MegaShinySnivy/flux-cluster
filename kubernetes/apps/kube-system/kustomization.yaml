@@ -8,4 +8,4 @@ resources:
   - ./metrics-server/ks.yaml
   - ./reloader/ks.yaml
   - ./csi-driver-nfs/ks.yaml
-  - ./snapshot-controller.yaml
+  - ./snapshot-controller/ks.yaml
