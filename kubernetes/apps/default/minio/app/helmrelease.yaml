@@ -36,9 +36,9 @@ spec:
     env:
       TZ: America/New_York
       MINIO_UPDATE: "off"
-      MINIO_BROWSER_REDIRECT_URL: https://minio.aurumautomaton.com
-      MINIO_SERVER_URL: https://s3.aurumautomaton.com
-      MINIO_API_CORS_ALLOW_ORIGIN: https://minio.aurumautomaton.com,https://s3.aurumautomaton.com
+      MINIO_BROWSER_REDIRECT_URL: https://minio.${SECRET_DOMAIN}
+      MINIO_SERVER_URL: https://s3.${SECRET_DOMAIN}
+      MINIO_API_CORS_ALLOW_ORIGIN: https://minio.${SECRET_DOMAIN},https://s3.${SECRET_DOMAIN}
     envFrom:
       - secretRef:
           name: minio-secret
@@ -86,7 +86,7 @@ spec:
         annotations:
           hajimari.io/icon: mdi:pail
         hosts:
-          - host: &console-host "minio.aurumautomaton.com"
+          - host: &console-host "minio.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -106,7 +106,7 @@ spec:
             chunked_transfer_encoding off;
           hajimari.io/enable: "false"
         hosts:
-          - host: &api-host s3.aurumautomaton.com
+          - host: &api-host s3.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
