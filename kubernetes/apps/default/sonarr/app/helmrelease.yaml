@@ -1,0 +1,92 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: sonarr
+  namespace: autopirate
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controller:
+      annotations:
+        reloader.stakater.com/auto: "true"
+    image:
+      # -- image repository
+      repository: ghcr.io/onedr0p/sonarr-develop
+      # @default -- chart.appVersion
+      tag: 4.0.0.491@sha256:26895ad1afb724944fea91657c3382e8fa76799ccf93b2df1e3b68f1b71c5388
+      # -- image pull policy
+      pullPolicy: IfNotPresent
+    env:
+      TZ: UTC
+      PGID: 1000
+      PUID: 1000
+    envFrom:
+      - secretRef:
+          name: sonarr-secret
+    service:
+      main:
+       enabled: true
+       ports:
+         http:
+           port: &sonarr-port 8989
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          hajimari.io/icon: mdi:tv
+        hosts:
+          - host: &sonarr-host "sonarr.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  port: *sonarr-port
+        tls:
+          - hosts:
+              - *sonarr-host
+    probes:
+      liveness:
+        enabled: true
+        custom: true
+        spec:
+          exec:
+            command:
+            - /usr/bin/env
+            - bash
+            - -c
+            - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
+              read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
+            failureThreshold: 5
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 10
+    persistence:
+      config:
+        enabled: true
+        existingClaim: sonarr-config
+        retain: true
+      tv:
+        enabled: true
+        mountPath: /tv
+        existingClaim: sonarr-tv
+        retain: true
