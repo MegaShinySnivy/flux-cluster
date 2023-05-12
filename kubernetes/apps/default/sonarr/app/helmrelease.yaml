@@ -36,9 +36,8 @@ spec:
       # -- image pull policy
       pullPolicy: IfNotPresent
     env:
-      TZ: UTC
-      PGID: 1000
-      PUID: 1000
+      TZ: America/Chicago
+      SONARR__INSTANCE_NAME: Sonarr
     envFrom:
       - secretRef:
           name: sonarr-secret
@@ -53,7 +52,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          hajimari.io/icon: mdi:tv
+          hajimari.io/icon: mdi:television-classic
         hosts:
           - host: &sonarr-host "sonarr.${SECRET_DOMAIN}"
             paths:
@@ -91,3 +90,15 @@ spec:
         mountPath: /tv
         existingClaim: sonarr-tv
         retain: true
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+      supplementalGroups: [10000]
+    resources:
+      requests:
+        cpu: 10m
+        memory: 250Mi
+      limits:
+        memory: 2000Mi
