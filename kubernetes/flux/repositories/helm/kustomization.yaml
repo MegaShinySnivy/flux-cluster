@@ -18,3 +18,4 @@ resources:
   - ./itzg.yaml
   - ./rook-ceph.yaml
   - ./piraeus.yaml
+  - ./backube.yaml
