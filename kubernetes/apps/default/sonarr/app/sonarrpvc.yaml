@@ -9,7 +9,7 @@ spec:
   storageClassName: csi-ceph-blockpool
   resources:
     requests:
-      storage: 8GB
+      storage: 8Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
