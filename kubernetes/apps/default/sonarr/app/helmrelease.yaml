@@ -4,6 +4,7 @@ metadata:
   name: sonarr
   namespace: default
 spec:
+  interval: 15m
   chart:
     spec:
       chart: app-template
