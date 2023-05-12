@@ -86,7 +86,7 @@ spec:
         annotations:
           hajimari.io/icon: mdi:pail
         hosts:
-          - host: &console-host "{{ .Release.Name }}.devbu.io"
+          - host: &console-host "https://minio.aurumautomaton.com"
             paths:
               - path: /
                 pathType: Prefix
@@ -99,7 +99,6 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          external-dns.alpha.kubernetes.io/target: ingress.devbu.io
           nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
           nginx.ingress.kubernetes.io/proxy-body-size: 1024m
           nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
@@ -107,7 +106,7 @@ spec:
             chunked_transfer_encoding off;
           hajimari.io/enable: "false"
         hosts:
-          - host: &api-host s3.devbu.io
+          - host: &api-host https://s3.aurumautomaton.com
             paths:
               - path: /
                 pathType: Prefix
