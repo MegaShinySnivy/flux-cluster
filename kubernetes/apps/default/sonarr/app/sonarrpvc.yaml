@@ -5,7 +5,7 @@ metadata:
   name: sonarr-config
   namespace: default
 spec:
-  accessModes: ["ReadWriteMany"]
+  accessModes: ["ReadWriteOnce"]
   storageClassName: csi-ceph-blockpool
   resources:
     requests:
