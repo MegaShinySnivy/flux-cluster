@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: sonarr
-  namespace: autopirate
+  namespace: default
 spec:
   chart:
     spec:
