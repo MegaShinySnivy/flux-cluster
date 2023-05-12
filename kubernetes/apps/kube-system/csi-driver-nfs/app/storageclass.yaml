@@ -10,7 +10,7 @@ provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.30.12
   share: /mnt/THICCBOI1/K8s-NFS/
-  MountPermissions: 777
+  MountPermissions: "7"
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 # Note: The first two options are strictly for NFSv4.2
