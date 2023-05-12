@@ -86,7 +86,7 @@ spec:
         annotations:
           hajimari.io/icon: mdi:pail
         hosts:
-          - host: &console-host "https://minio.aurumautomaton.com"
+          - host: &console-host "minio.aurumautomaton.com"
             paths:
               - path: /
                 pathType: Prefix
@@ -106,7 +106,7 @@ spec:
             chunked_transfer_encoding off;
           hajimari.io/enable: "false"
         hosts:
-          - host: &api-host https://s3.aurumautomaton.com
+          - host: &api-host s3.aurumautomaton.com
             paths:
               - path: /
                 pathType: Prefix
