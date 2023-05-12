@@ -7,4 +7,5 @@ resources:
   - ./hajimari/ks.yaml
   - ./minio/ks.yaml
   - ./sonarr/ks.yaml
+  - ./radarr/ks.yaml
   #some-comment
