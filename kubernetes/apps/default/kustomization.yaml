@@ -6,4 +6,4 @@ resources:
   - ./echo-server/ks.yaml
   - ./hajimari/ks.yaml
   - ./minio/ks.yaml
-  - ./sonarr/ks.yaml
+  # - ./sonarr/ks.yaml
