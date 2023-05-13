@@ -6,3 +6,5 @@ resources:
   - ./sonarrpvc.yaml
   - ./helmrelease.yaml
   - ./sonarrsecret.sops.yaml
+  - ./volsyncconf.yaml
+  - ./volsyncsecret.sops.yaml
