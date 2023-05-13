@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -43,10 +44,10 @@ spec:
           name: radarr-secret
     service:
       main:
-       enabled: true
-       ports:
-         http:
-           port: &radarr-port 7878
+        enabled: true
+        ports:
+          http:
+            port: &radarr-port 7878
     ingress:
       main:
         enabled: true
@@ -70,22 +71,22 @@ spec:
         spec:
           exec:
             command:
-            - /usr/bin/env
-            - bash
-            - -c
-            - curl --fail localhost:7878/api/v3/system/status?apiKey=`IFS=\> && while
-              read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
-            failureThreshold: 10
-            initialDelaySeconds: 120
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 30
+              - /usr/bin/env
+              - bash
+              - -c
+              - curl --fail localhost:7878/api/v3/system/status?apiKey=`IFS=\> && while
+                read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
+          failureThreshold: 10
+          initialDelaySeconds: 120
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 30
     persistence:
       config:
         enabled: true
         existingClaim: radarr-config
         retain: true
-      tv:
+      movies:
         enabled: true
         mountPath: /movies
         existingClaim: radarr-movies
