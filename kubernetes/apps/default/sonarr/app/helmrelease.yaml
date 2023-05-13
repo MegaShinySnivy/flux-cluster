@@ -32,7 +32,7 @@ spec:
       # -- image repository
       repository: ghcr.io/onedr0p/sonarr-develop
       # @default -- chart.appVersion
-      tag: 4.0.0.491@sha256:26895ad1afb724944fea91657c3382e8fa76799ccf93b2df1e3b68f1b71c5388
+      tag: 4.0.0.494@sha256:ee11758196f6a165fea0d2c773c00d410685288ca1df9805329c279433cdb0e4
       # -- image pull policy
       pullPolicy: IfNotPresent
     env:
