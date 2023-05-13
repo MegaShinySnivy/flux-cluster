@@ -6,3 +6,5 @@ resources:
   - ./radarrpvc.yaml
   - ./helmrelease.yaml
   - ./radarrsecret.sops.yaml
+  - ./volsyncconf.yaml
+  - ./volsyncsecret.sops.yaml
