@@ -81,7 +81,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: radarr-config
+        existingClaim: prowlarr-config
         retain: true
     resources:
       requests:
