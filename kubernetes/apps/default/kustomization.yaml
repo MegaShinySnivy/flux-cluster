@@ -8,4 +8,6 @@ resources:
   - ./minio/ks.yaml
   - ./sonarr/ks.yaml
   - ./radarr/ks.yaml
+  - ./bazarr/ks.yaml
+  - ./prowlarr/ks.yaml
   #some-comment
