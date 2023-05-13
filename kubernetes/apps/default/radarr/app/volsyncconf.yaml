@@ -3,16 +3,16 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: sonarr
+  name: radarr
   namespace: default
 spec:
-  sourcePVC: sonarr-config
+  sourcePVC: radarr-config
   trigger:
     schedule: "0 0 * * *"
   restic:
     copyMethod: Snapshot
     pruneIntervalDays: 10
-    repository: restic-config-sonarr
+    repository: restic-config-radarr
     cacheCapacity: 2Gi
     volumeSnapshotClassName: csi-ceph-blockpool
     storageClassName: csi-ceph-blockpool
