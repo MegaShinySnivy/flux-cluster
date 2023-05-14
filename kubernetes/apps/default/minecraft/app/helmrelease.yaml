@@ -1,0 +1,78 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: java-tf
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: minecraft
+      version: 4.7.4
+      sourceRef:
+        kind: HelmRepository
+        name: itgz
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controller:
+      annotations:
+        reloader.stakater.com/auto: "true"
+  image:
+    repository: itgz/minecraft-server
+    tag: latest@sha256:e346c48c91802cedc7f3b25c169c79e039adf8164d75b42064cf7beecfe99f4c
+  minecraftServer:
+    eula: true
+    version: "1.18.2"
+    paperDownloadUrl: https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/388/downloads/paper-1.18.2-388.jar
+    difficulty: normal
+    maxWorldSize: 10000
+    allowNether: true
+    announcePlayerAchievements: false
+    enableCommandBlock: true
+    generateStructures: true
+    hardcore: false
+    maxBuildHeight: 256
+    maxTickTime: 60000
+    viewDistance: 10
+    spawnProtection: 16
+    gameMode: survival
+    levelType: DEFAULT
+    vanillaTweaksShareCodes: 9CIWkF,gquxh9
+    onlineMode: true
+    serviceType: LoadBalancer
+    servicePort: 62557
+    LoadBalancerIP: 10.0.10.122
+    rcon:
+      enabled: true
+      port: 25575
+      existingSecret: rcon-password
+      secretKey: rcon-password
+      serviceType: ClusterIP
+  valuesFrom:
+    - secretRef:
+        name: minecraft-secrets
+  persistence:
+    storageClass: nfs
+    enabled: true
+    size: 1Gi
+  mcBackup:
+    enabled: true
+    image: itgz/mc-backup
+    tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
+    persistence:
+      storageClass: nfs
+      backupdir:
+        enabled: true
+        Size: 1Gi
