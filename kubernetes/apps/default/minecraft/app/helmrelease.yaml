@@ -30,7 +30,7 @@ spec:
       annotations:
         reloader.stakater.com/auto: "true"
     image:
-      repository: itgz/minecraft-server
+      repository: itzg/minecraft-server
       tag: latest@sha256:e346c48c91802cedc7f3b25c169c79e039adf8164d75b42064cf7beecfe99f4c
     minecraftServer:
       eula: true
@@ -69,7 +69,7 @@ spec:
       size: 1Gi
     mcBackup:
       enabled: true
-      image: itgz/mc-backup
+      image: it itzg/mc-backup
       tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
       persistence:
         storageClass: nfs
