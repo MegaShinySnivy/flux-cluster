@@ -60,9 +60,9 @@ spec:
         existingSecret: rcon-password
         secretKey: rcon-password
         serviceType: ClusterIP
-      valuesFrom:
-        - secretRef:
-            name: minecraft-secrets
+    valuesFrom:
+      - secretRef:
+          name: minecraft-secrets
     persistence:
       storageClass: nfs
       enabled: true
