@@ -65,11 +65,12 @@ spec:
         serviceType: ClusterIP
     persistence:
       storageClass: nfs
-      enabled: true
-      size: 1Gi
+      dataDir:
+        enabled: true
+        size: 1Gi
     mcBackup:
       enabled: true
-      image: it itzg/mc-backup
+      image: itzg/mc-backup
       tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
       persistence:
         storageClass: nfs
