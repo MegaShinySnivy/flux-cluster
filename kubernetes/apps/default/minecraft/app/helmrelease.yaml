@@ -32,6 +32,9 @@ spec:
     image:
       repository: itzg/minecraft-server
       tag: latest@sha256:c6c6afd0e3fa4f06074a449c2dc8248a55a7c639bdda5754d5eaa6963447c909
+    valuesFrom:
+      - secretRef:
+          name: minecraft-secrets
     minecraftServer:
       eula: true
       version: "1.18.2"
@@ -60,9 +63,6 @@ spec:
         existingSecret: rcon-password
         secretKey: rcon-password
         serviceType: ClusterIP
-    valuesFrom:
-      - secretRef:
-          name: minecraft-secrets
     persistence:
       storageClass: nfs
       enabled: true
