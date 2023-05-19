@@ -35,6 +35,7 @@ spec:
     minecraftServer:
       eula: true
       version: "1.18.2"
+      type: PAPER
       paperDownloadUrl: https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/388/downloads/paper-1.18.2-388.jar
       difficulty: normal
       maxWorldSize: 10000
