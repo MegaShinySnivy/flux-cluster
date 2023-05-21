@@ -22,14 +22,11 @@ spec:
   upgrade:
     remediation:
       retries: 5
-  dependsOn:
-    - name: ingress-nginx
-      namespace: networking
   values:
     image:
       # https://hub.docker.com/r/haveagitgat/tdarr_node
       repository: docker.io/haveagitgat/tdarr
-      tag: latest
+      tag: latest@
     env:
       TZ: "America/Chicago"
       webUIPort: 8265
