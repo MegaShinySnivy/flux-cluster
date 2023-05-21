@@ -1,0 +1,121 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: tdarr
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.3.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  dependsOn:
+    - name: ingress-nginx
+      namespace: networking
+  values:
+    image:
+      # https://hub.docker.com/r/haveagitgat/tdarr_node
+      repository: docker.io/haveagitgat/tdarr
+      tag: latest
+    env:
+      TZ: "America/Chicago"
+      webUIPort: 8265
+      serverIP: 0.0.0.0
+      serverPort: 8266
+      ffmpegPath: ""
+      PUID: 568
+      PGID: 568
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: "10.0.0.236"
+        ports:
+          http:
+            port: 8265
+          server:
+            enabled: true
+            protocol: TCP
+            port: 8266
+    persistence:
+      config:
+        enabled: true
+        existingClaim: tdarr-config
+        subPath:
+          - path: tdarr/config
+            mountPath: /app/configs
+          - path: tdarr/data
+            mountPath: /app/server
+      movies:
+        enabled: true
+        existingClaim: radarr-movies
+        mountPath: /data/movies
+      tv:
+        enabled: true
+        existingClaim: sonarr-tv
+        mountPath: /data/tv
+      # Transcode dir
+      shared:
+        enabled: true
+        type: emptyDir
+        mountPath: /shared
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: material-symbols:switch-video-outline
+        hosts:
+          - host: &host "tdarr.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: tdarr-tls
+    sidecars:
+      node:
+        name: node
+        image: docker.io/haveagitgat/tdarr_node:latest
+        env:
+          - name: TZ
+            value: "America/Chicago"
+          - name: nodeID
+            value: node01
+          - name: serverIP
+            value: localhost
+          - name: serverPort
+            value: 8266
+          - name: ffmpegPath
+            value: ""
+          - name: PUID
+            value: 568
+          - name: PGID
+            value: 568
+        volumeMounts:
+          - name: config
+            mountPath: /app/configs
+          - name: movies
+            mountPath: /data/movies
+          - name: tv
+            mountPath: /data/tv
+          - name: shared
+            mountPath: /shared
+        resources:
+          requests:
+            cpu: 2500m
+            memory: 2048m
