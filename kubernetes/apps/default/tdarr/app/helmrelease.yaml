@@ -38,7 +38,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: "10.0.0.236"
+        loadBalancerIP: "10.0.10.123"
         ports:
           http:
             port: 8265
