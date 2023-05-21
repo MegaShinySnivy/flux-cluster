@@ -26,7 +26,7 @@ spec:
     image:
       # https://hub.docker.com/r/haveagitgat/tdarr_node
       repository: docker.io/haveagitgat/tdarr
-      tag: latest@sha256:9f93296f5f000a4918d7a3b4bbbad41b9b0e189284c59bbed7b4d7288b006ad1
+      tag: latest@sha256:e30477fe21ec36d4cdba872e8c762523808e61471597d5156e1904bbe9752c00
     env:
       TZ: "America/Chicago"
       webUIPort: 8265
@@ -87,7 +87,7 @@ spec:
     sidecars:
       node:
         name: node
-        image: docker.io/haveagitgat/tdarr_node:latest
+        image: docker.io/haveagitgat/tdarr_node:latest@sha256:9f93296f5f000a4918d7a3b4bbbad41b9b0e189284c59bbed7b4d7288b006ad1
         env:
           - name: TZ
             value: "America/Chicago"
