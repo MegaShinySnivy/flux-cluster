@@ -4,12 +4,7 @@ kind: Kustomization
 metadata:
   name: cluster-apps-tdarr
   namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/enabled: "true"
 spec:
-  dependsOn:
-    - name: cluster-apps-rook-ceph
-    - name: cluster-apps-ingress-nginx
   path: ./kubernetes/apps/default/tdarr/app
   prune: true
   sourceRef:
@@ -21,6 +16,6 @@ spec:
       kind: HelmRelease
       name: tdarr
       namespace: default
-  interval: 30m
+  interval: 15m
   retryInterval: 1m
-  timeout: 3m
+  timeout: 2m
