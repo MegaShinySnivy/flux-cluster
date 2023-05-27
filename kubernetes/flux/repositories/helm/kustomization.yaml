@@ -19,3 +19,4 @@ resources:
   - ./rook-ceph.yaml
   - ./piraeus.yaml
   - ./backube.yaml
+  - ./authentik.yaml
