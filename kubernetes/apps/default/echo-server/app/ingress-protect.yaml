@@ -14,5 +14,6 @@ spec:
                   # See https://kubernetes.io/docs/concepts/services-networking/service/#externalname
                   service:
                       name: authentik
+                      namespace: security
                       port:
                           number: 9000
