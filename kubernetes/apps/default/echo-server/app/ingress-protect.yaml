@@ -16,4 +16,4 @@ spec:
                       name: authentik
                       namespace: security
                       port:
-                          number: 9000
+                          number: 9100

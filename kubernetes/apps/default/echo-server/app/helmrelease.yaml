@@ -61,7 +61,7 @@ spec:
           # This should be the in-cluster DNS name for the authentik outpost service
           # as when the external URL is specified here, nginx will overwrite some crucial headers
           nginx.ingress.kubernetes.io/auth-url: |-
-              http://authentik.security.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+              http://authentik.security.svc.cluster.local:9100/outpost.goauthentik.io/auth/nginx
           # If you're using domain-level auth, use the authentication URL instead of the application URL
           nginx.ingress.kubernetes.io/auth-signin: |-
               https://echo-server.${SECRET_DOMAIN}/outpost.goauthentik.io/start?rd=$escaped_request_uri
