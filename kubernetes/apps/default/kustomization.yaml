@@ -12,5 +12,5 @@ resources:
   - ./prowlarr/ks.yaml
   - ./minecraft/ks.yaml
   - ./tdarr/ks.yaml
-  # - ./sabnzbd/ks.yaml
+  - ./sabnzbd/ks.yaml
   #some-comment-here
