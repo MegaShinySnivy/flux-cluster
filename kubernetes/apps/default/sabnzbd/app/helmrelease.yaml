@@ -48,7 +48,7 @@ spec:
         enabled: true
         ports:
           http:
-            port: &sabznbd-port 8080
+            port: &sabnzbd-port 8080
     ingress:
       main:
         enabled: true
@@ -56,24 +56,24 @@ spec:
         annotations:
           hajimari.io/icon: mdi:download
         hosts:
-          - host: &sabznbd-host "sabnzbd.${SECRET_DOMAIN}"
+          - host: &sabnzbd-host "sabnzbd.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
                 service:
-                  port: *sabznbd-port
+                  port: *sabnzbd-port
         tls:
           - hosts:
-              - *sabznbd-host
+              - *sabnzbd-host
     persistence:
       config:
         enabled: true
         existingClaim: sabnzbd-config
         retain: true
-      movies:
+      downloads:
         enabled: true
         mountPath: /downloads-usenet
-        existingClaim: sabznbd-downloads
+        existingClaim: sabnzbd-downloads
         retain: true
     podSecurityContext:
       runAsUser: 568

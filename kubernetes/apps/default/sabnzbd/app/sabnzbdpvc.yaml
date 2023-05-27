@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sabznbd-downloads
+  name: sabnzbd-downloads
   namespace: default
 spec:
   accessModes: ["ReadWriteMany"]
