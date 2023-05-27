@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sannzbd-config
+  name: sabnzbd-config
   namespace: default
 spec:
   accessModes: ["ReadWriteOnce"]
