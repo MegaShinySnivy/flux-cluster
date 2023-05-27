@@ -1,0 +1,87 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: authentik
+  namespace: security
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://charts.goauthentik.io
+      chart: authentik
+      version: 2023.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: authentik-charts
+        namespace: flux-system
+      interval: 5m
+  install:
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+      remediateLastFailure: true
+    cleanupOnFail: true
+  rollback:
+    timeout: 10m
+    recreate: true
+    cleanupOnFail: true
+  values:
+    image:
+      repository: ghcr.io/goauthentik/server
+      tag: 2023.4.1
+      # -- optional container image digest
+      pullPolicy: IfNotPresent
+    service:
+      enabled: true
+      type: ClusterIP
+      port: &authentik-port 80
+      name: http
+      protocol: TCP
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        hajimari.io/icon: account-check
+      hosts:
+        - host: &authentik-host "authentik.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: *authentik-port
+      tls:
+        - hosts:
+            - *authentik-host
+    authentik:
+      log_level: info
+      secret_key: ${AUTHENTIK_SECRET_KEY}
+      email:
+        host: smtp.mailgun.org
+        port: 587
+        username: ${AUTHENTIK_EMAIL_USERNAME}
+        password: ${AUTHENTIK_EMAIL_PASSWORD}
+        from: authentik.noreply@mail.${SECRET_DOMAIN}
+      postgresql:
+        password: ${AUTHENTIK_POSTGRESQL_PASSWORD}
+      redis:
+        password: ${AUTHENTIK_REDIS_PASSWORD}
+    postgresql:
+      image:
+        tag: 11.19.0-debian-11-r4
+      enabled: true
+      postgresqlPassword: ${AUTHENTIK_POSTGRESQL_PASSWORD}
+      persistence:
+        enabled: true
+        storageClass: csi-ceph-blockpool
+        accessModes:
+          - ReadWriteOnce
+    redis:
+      enabled: true
+      image:
+        tag: 6.2.10-debian-11-r13
+      auth:
+        enabled: true
+        passowrd: ${AUTHENTIK_REDIS_PASSWORD}
