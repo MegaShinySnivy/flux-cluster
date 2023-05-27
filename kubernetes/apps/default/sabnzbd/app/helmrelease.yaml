@@ -56,7 +56,7 @@ spec:
         annotations:
           hajimari.io/icon: mdi:download
         hosts:
-          - host: &sabznbd-host "sabznbd.${SECRET_DOMAIN}"
+          - host: &sabznbd-host "sabnzbd.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
