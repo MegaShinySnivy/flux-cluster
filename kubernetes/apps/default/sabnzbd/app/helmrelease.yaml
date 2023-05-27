@@ -68,7 +68,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: sabznbd-config
+        existingClaim: sabnzbd-config
         retain: true
       movies:
         enabled: true
