@@ -11,7 +11,7 @@ spec:
           - pathType: Prefix
             path: /outpost.goauthentik.io
             backend:
-            service:
-              name: authentik
-              port:
-                number: 9100
+              service:
+                name: authentik
+                port:
+                  number: 9100
