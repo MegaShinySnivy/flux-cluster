@@ -44,6 +44,7 @@ spec:
       enabled: true
       ingressClassName: nginx
       annotations:
+        external-dns.alpha.kubernetes.io/target: "ingress.${SECRET_DOMAIN}"
         hajimari.io/icon: account-check
       hosts:
         - host: &authentik-host "authentik.${SECRET_DOMAIN}"
@@ -56,7 +57,7 @@ spec:
         - hosts:
             - *authentik-host
     authentik:
-      log_level: info
+      log_level: trace
       secret_key: ${AUTHENTIK_SECRET_KEY}
       email:
         host: smtp.mailgun.org
