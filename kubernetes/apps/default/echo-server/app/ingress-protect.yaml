@@ -14,4 +14,4 @@ spec:
               service:
                 name: authentik
                 port:
-                  number: 80
+                  number: 9100
