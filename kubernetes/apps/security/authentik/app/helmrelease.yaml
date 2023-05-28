@@ -31,7 +31,7 @@ spec:
   values:
     image:
       repository: ghcr.io/goauthentik/server
-      tag: 2023.4.1
+      tag: 2023.5.1
       # -- optional container image digest
       pullPolicy: IfNotPresent
     service:
