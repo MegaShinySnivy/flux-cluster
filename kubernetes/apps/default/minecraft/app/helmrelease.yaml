@@ -31,7 +31,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: itzg/minecraft-server
-      tag: latest@sha256:59f4cdd91e9220a6764706dcf70d19188c3331e723192888b757528b5870a97e
+      tag: latest@sha256:3f33564d506cce3fcfcb07ddf42cfe7cbe906c1a53734263014826cec2ad553b
     minecraftServer:
       eula: true
       version: "1.18.2"
