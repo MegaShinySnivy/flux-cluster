@@ -6,6 +6,8 @@ metadata:
   name: cluster-apps-minio
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-rook-ceph-cluster
   path: ./kubernetes/apps/default/minio/app
   prune: true
   sourceRef:

@@ -5,6 +5,9 @@ metadata:
   name: cluster-apps-tdarr
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-rook-ceph-cluster
+    - name: cluster-apps-volsync
   path: ./kubernetes/apps/default/tdarr/app
   prune: true
   sourceRef:
