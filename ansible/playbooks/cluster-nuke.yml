@@ -31,6 +31,11 @@
       environment:
         KUBECONFIG: /etc/rancher/k3s/k3s.yaml
 
+    - name: Prevent k3s from starting on reboot
+      ansible.builtin.systemd:
+        name: k3s
+        enabled: false
+
     - name: Reboot
       ansible.builtin.reboot:
         msg: Rebooting nodes
