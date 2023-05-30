@@ -73,7 +73,9 @@ spec:
       image:
         tag: 11.19.0-debian-11-r4
       enabled: true
+      postgresqlUsername: "${AUTHENTIK_POSTGRESQL_USERNAME}"
       postgresqlPassword: ${AUTHENTIK_POSTGRESQL_PASSWORD}
+      postgresqlDatabase: "${AUTHENTIK_POSTGRESQL_DATABASE}"
       persistence:
         enabled: true
         storageClass: csi-ceph-blockpool
