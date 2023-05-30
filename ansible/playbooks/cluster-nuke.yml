@@ -23,6 +23,9 @@
         seconds: 5
   tasks:
     - name: Uninstall Cilium
+      when:
+        - k3s_control_node is defined
+        - k3s_control_node
       ansible.builtin.shell: |
         cilium uninstall --wait
       environment:
