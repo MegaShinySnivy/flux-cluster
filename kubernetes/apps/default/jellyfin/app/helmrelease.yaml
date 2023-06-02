@@ -1,0 +1,107 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jellyfin
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controller:
+      annotations:
+        reloader.stakater.com/auto: "true"
+    image:
+      repository: jellyfin/jellyfin
+      tag: latest@sha256:d818ab432f1feb517795b05b11aa01037b7b25084b08a45e1bf56544ee236ba3
+    env:
+      TZ: America/Chicago
+      JELLYFIN_PublishedServerUrl: https://jellyfin-test.${SECRET_DOMAIN}
+    service:
+      main:
+        ports:
+          http:
+            port: &jellyfin-port 8096
+    probes:
+      liveness: &probes
+        enabled: true
+        custom: true
+        spec:
+          httpGet:
+            path: /health
+            port: *jellyfin-port
+          initialDelaySeconds: 0
+          periodSeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 3
+      readiness: *probes
+      startup:
+        enabled: false
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          hajimari.io/icon: mdi:jellyfish
+        hosts:
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+    persistence:
+      config:
+        enabled: true
+        existingClaim: jellyfin-config
+        retain: true
+        mountPath: /config
+      plugins:
+        enabled: true
+        existingClaim: jellyfin-plugins
+        retain: false
+        mountPath: /var/lib/jellyfin/plugins
+      movies:
+        enabled: true
+        existingClaim: radarr-movies
+        retain: true
+        mountPath: /movies
+      tv:
+        enabled: true
+        existingClaim: sonarr-tv
+        retain: true
+        mountpath: /tv
+      cache:
+        enabled: true
+        type: emptyDir
+        medium: Memory
+        mountPath: /config/cache
+    resources:
+      requests:
+        cpu: 10m
+        memory: 100Mi
