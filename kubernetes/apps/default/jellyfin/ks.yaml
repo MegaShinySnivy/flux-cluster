@@ -9,7 +9,7 @@ spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
     - name: cluster-apps-volsync
-    - name: cluster-apps-nginx
+    - name: cluster-apps-ingress-nginx
     - name: cluster-apps-authentik
   path: ./kubernetes/apps/default/jellyfin/app
   prune: true
