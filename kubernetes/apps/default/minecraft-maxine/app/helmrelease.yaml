@@ -1,0 +1,81 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: java-maxine
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: minecraft
+      version: 4.8.0
+      sourceRef:
+        kind: HelmRepository
+        name: itzg
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controller:
+      annotations:
+        reloader.stakater.com/auto: "true"
+    image:
+      repository: itzg/minecraft-server
+      tag: latest@sha256:2dac9ce79aa6e106cd0107ed2b47e6c7cb73f133fd23057faa160739cf6fc2b0
+    minecraftServer:
+      eula: true
+      version: "1.18.2"
+      type: "CURSEFORGE"
+      cfServerMod: https://www.curseforge.com/minecraft/modpacks/vault-hunters-1-18-2/files/4557203
+      difficulty: hard
+      maxWorldSize: 10000
+      whitelist: AurumAutomaton,OmniSnuggle,MaxTheMooshroom,SkyeMeows,Okuumu,melanomar,jkleinveld,greytux
+      icon: https://vaulthunters.gg/assets/vh-logo-lg-a4fbcbdd.png
+      motd: "Welcome to VaultHunters gaymers! Powered by Serpie's Service Stack."
+      ops: AurumAutomaton,MaxTheMooshroom
+      allowNether: true
+      announcePlayerAchievements: true
+      enableCommandBlock: true
+      generateStructures: true
+      hardcore: false
+      maxBuildHeight: 320
+      maxTickTime: 60000
+      viewDistance: 10
+      spawnProtection: 0
+      gameMode: survival
+      levelType: DEFAULT
+      vanillaTweaksShareCodes: BJDJWo
+      onlineMode: true
+      serviceType: LoadBalancer
+      servicePort: 62558
+      LoadBalancerIP: 10.0.10.124
+      rcon:
+        enabled: true
+        port: 25585
+        existingSecret: rcon-password
+        secretKey: rcon-password
+        serviceType: ClusterIP
+    persistence:
+      storageClass: nfs
+      dataDir:
+        enabled: true
+        size: 1Gi
+    mcBackup:
+      enabled: true
+      image: itzg/mc-backup
+      tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
+      persistence:
+        storageClass: nfs
+        backupdir:
+          enabled: true
+          Size: 1Gi
