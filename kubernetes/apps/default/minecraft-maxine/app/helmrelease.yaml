@@ -43,7 +43,7 @@ spec:
     livenessProbe:
       command:
         - mc-health
-      initialDelaySeconds: 600
+      initialDelaySeconds: 540
       periodSeconds: 5
       failureThreshold: 30
       successThreshold: 1
@@ -51,7 +51,7 @@ spec:
     readinessProbe:
       command:
         - mc-health
-      initialDelaySeconds: 600
+      initialDelaySeconds: 540
       periodSeconds: 5
       failureThreshold: 30
       successThreshold: 1
