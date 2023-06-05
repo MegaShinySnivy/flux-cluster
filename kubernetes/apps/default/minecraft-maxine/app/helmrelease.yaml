@@ -54,7 +54,7 @@ spec:
       spawnProtection: 0
       gameMode: survival
       levelType: DEFAULT
-      vanillaTweaksShareCodes: BJDJWo
+      vanillaTweaksShareCodes:
       onlineMode: true
       serviceType: LoadBalancer
       servicePort: 62558
