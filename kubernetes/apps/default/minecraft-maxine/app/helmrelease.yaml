@@ -57,8 +57,10 @@ spec:
     minecraftServer:
       eula: true
       version: "1.18.2"
-      type: "CURSEFORGE"
-      cfServerMod: https://www.curseforge.com/api/v1/mods/711537/files/4558204/download
+      type: "FORGE"
+      forgeVersion: 40.2.1
+      downloadModpackUrl: https://www.curseforge.com/api/v1/mods/711537/files/4558204/download
+      # cfServerMod: https://www.curseforge.com/api/v1/mods/711537/files/4558204/download
       difficulty: hard
       maxWorldSize: 10000
       whitelist: AurumAutomaton,OmniSnuggle,MaxTheMooshroom,SkyeMeows,Okuumu,melanomar,jkleinveld,greytux,KennyTheLogician
