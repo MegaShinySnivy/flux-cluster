@@ -34,7 +34,7 @@ spec:
       tag: latest@sha256:2dac9ce79aa6e106cd0107ed2b47e6c7cb73f133fd23057faa160739cf6fc2b0
     resources:
       requests:
-        memory: 2Gi
+        memory: 6Gi
         cpu: 500m
     livenessProbe:
       command:
@@ -82,7 +82,9 @@ spec:
       spawnProtection: 0
       gameMode: survival
       levelType: DEFAULT
-      vanillaTweaksShareCodes:
+      memory: 6000M
+      jvmOpts: ""
+      jvmXXOpts: "-Xmx6G -Xms2G"
       onlineMode: true
       serviceType: LoadBalancer
       servicePort: 62558
