@@ -36,7 +36,7 @@ spec:
       eula: true
       version: "1.18.2"
       type: "CURSEFORGE"
-      cfServerMod: https://www.curseforge.com/minecraft/modpacks/vault-hunters-1-18-2/files/4557203
+      cfServerMod: https://www.curseforge.com/minecraft/modpacks/vault-hunters-1-18-2/download/4557203
       difficulty: hard
       maxWorldSize: 10000
       whitelist: AurumAutomaton,OmniSnuggle,MaxTheMooshroom,SkyeMeows,Okuumu,melanomar,jkleinveld,greytux,KennyTheLogician
