@@ -39,7 +39,7 @@ spec:
       cfServerMod: https://www.curseforge.com/minecraft/modpacks/vault-hunters-1-18-2/files/4557203
       difficulty: hard
       maxWorldSize: 10000
-      whitelist: AurumAutomaton,OmniSnuggle,MaxTheMooshroom,SkyeMeows,Okuumu,melanomar,jkleinveld,greytux
+      whitelist: AurumAutomaton,OmniSnuggle,MaxTheMooshroom,SkyeMeows,Okuumu,melanomar,jkleinveld,greytux,KennyTheLogician
       icon: https://vaulthunters.gg/assets/vh-logo-lg-a4fbcbdd.png
       motd: "Welcome to VaultHunters gaymers! Powered by Serpie's Service Stack."
       ops: AurumAutomaton,MaxTheMooshroom
