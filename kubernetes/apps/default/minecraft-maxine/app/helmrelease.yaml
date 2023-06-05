@@ -34,8 +34,10 @@ spec:
       tag: latest@sha256:2dac9ce79aa6e106cd0107ed2b47e6c7cb73f133fd23057faa160739cf6fc2b0
     resources:
       requests:
-        memory: 6Gi
+        memory: 8Gi
         cpu: 500m
+      limits:
+        memory: 8Gi
     livenessProbe:
       command:
         - mc-health
@@ -84,7 +86,7 @@ spec:
       levelType: DEFAULT
       memory: 6000M
       jvmOpts: ""
-      jvmXXOpts: "-Xmx6G -Xms2G"
+      jvmXXOpts: "-XX:+UseG1GC -Dsun.rmi.dgc.server.gcInterval=2147483646 -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M"
       onlineMode: true
       serviceType: LoadBalancer
       servicePort: 62558
