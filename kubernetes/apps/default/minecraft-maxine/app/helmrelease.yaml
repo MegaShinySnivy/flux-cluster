@@ -32,6 +32,28 @@ spec:
     image:
       repository: itzg/minecraft-server
       tag: latest@sha256:2dac9ce79aa6e106cd0107ed2b47e6c7cb73f133fd23057faa160739cf6fc2b0
+    livenessProbe:
+      command:
+        - mc-health
+      initialDelaySeconds: 60
+      periodSeconds: 5
+      failureThreshold: 20
+      successThreshold: 1
+      timeoutSeconds: 1
+    readinessProbe:
+      command:
+        - mc-health
+      initialDelaySeconds: 60
+      periodSeconds: 5
+      failureThreshold: 20
+      successThreshold: 1
+      timeoutSeconds: 1
+    startupProbe:
+      command:
+        - mc-health
+      enabled: false
+      failureThreshold: 60
+      periodSeconds: 10
     minecraftServer:
       eula: true
       version: "1.18.2"
