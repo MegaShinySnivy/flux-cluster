@@ -35,24 +35,24 @@ spec:
     livenessProbe:
       command:
         - mc-health
-      initialDelaySeconds: 60
+      initialDelaySeconds: 120
       periodSeconds: 5
-      failureThreshold: 20
+      failureThreshold: 30
       successThreshold: 1
       timeoutSeconds: 1
     readinessProbe:
       command:
         - mc-health
-      initialDelaySeconds: 60
+      initialDelaySeconds: 120
       periodSeconds: 5
-      failureThreshold: 20
+      failureThreshold: 30
       successThreshold: 1
       timeoutSeconds: 1
     startupProbe:
       command:
         - mc-health
       enabled: false
-      failureThreshold: 60
+      failureThreshold: 120
       periodSeconds: 10
     minecraftServer:
       eula: true
