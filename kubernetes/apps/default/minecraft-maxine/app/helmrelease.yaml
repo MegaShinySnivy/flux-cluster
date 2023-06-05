@@ -41,7 +41,7 @@ spec:
     livenessProbe:
       command:
         - mc-health
-      initialDelaySeconds: 300
+      initialDelaySeconds: 360
       periodSeconds: 5
       failureThreshold: 30
       successThreshold: 1
@@ -49,7 +49,7 @@ spec:
     readinessProbe:
       command:
         - mc-health
-      initialDelaySeconds: 300
+      initialDelaySeconds: 360
       periodSeconds: 5
       failureThreshold: 30
       successThreshold: 1
@@ -93,7 +93,7 @@ spec:
       LoadBalancerIP: 10.0.10.124
       rcon:
         enabled: true
-        port: 25585
+        port: 25575
         existingSecret: rcon-password
         secretKey: rcon-password
         serviceType: ClusterIP
