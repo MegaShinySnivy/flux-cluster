@@ -81,7 +81,7 @@ spec:
       generateStructures: true
       hardcore: false
       maxBuildHeight: 320
-      maxTickTime: 60000
+      maxTickTime: 6000000
       viewDistance: 10
       spawnProtection: 0
       gameMode: survival
