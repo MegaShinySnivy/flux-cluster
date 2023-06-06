@@ -132,6 +132,7 @@ spec:
           volumeClaimTemplate:
             spec:
               storageClassName: csi-ceph-blockpool
+              accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
                   storage: 10Gi
