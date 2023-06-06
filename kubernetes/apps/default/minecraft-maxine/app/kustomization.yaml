@@ -5,3 +5,4 @@ namespace: default
 resources:
   - ./helmrelease.yaml
   - ./minecraft-secrets.sops.yaml
+  - ./helmrelease-rcon.yaml
