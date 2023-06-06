@@ -55,6 +55,6 @@ spec:
       passwordKey: rcon-password
       game: minecraft
       rconHost: java-maxine-minecraft-rcon
-      rconPort: 62557
+      rconPort: 25575
       rconPasswordExistingSecret: rcon-password
       rconPasswordKey: rcon-password
