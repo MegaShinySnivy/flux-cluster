@@ -37,7 +37,7 @@ spec:
     resources:
       requests:
         memory: 8Gi
-        cpu: 500m
+        cpu: 1000m
       limits:
         memory: 8Gi
     livenessProbe:
@@ -70,7 +70,7 @@ spec:
       # downloadModpackUrl: https://www.curseforge.com/api/v1/mods/711537/files/4558204/download
       # cfServerMod: https://www.curseforge.com/api/v1/mods/711537/files/4558204/download
       difficulty: hard
-      maxWorldSize: 10000
+      maxWorldSize: 5000
       whitelist: AurumAutomaton,OmniSnuggle,MaxTheMooshroom,SkyeMeows,Okuumu,melanomar,jkleinveld,greytux,KennyTheLogician,Krivy
       icon: https://vaulthunters.gg/assets/vh-logo-lg-a4fbcbdd.png
       motd: "Welcome to VaultHunters gaymers! Powered by Serpie's Service Stack."
@@ -81,7 +81,7 @@ spec:
       generateStructures: true
       hardcore: false
       maxBuildHeight: 320
-      maxTickTime: 600000000
+      maxTickTime: 6000
       viewDistance: 10
       spawnProtection: 0
       gameMode: survival
