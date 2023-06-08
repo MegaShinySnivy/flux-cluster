@@ -38,8 +38,6 @@ spec:
       requests:
         memory: 8Gi
         cpu: 1000m
-      limits:
-        memory: 8Gi
     livenessProbe:
       command:
         - mc-health
