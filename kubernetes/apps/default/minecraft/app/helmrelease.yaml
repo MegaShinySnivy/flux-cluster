@@ -65,7 +65,7 @@ spec:
         secretKey: rcon-password
         serviceType: ClusterIP
     persistence:
-      storageClass: emptyDir
+      storageClass: nfs
       dataDir:
         enabled: true
         size: 12Gi
