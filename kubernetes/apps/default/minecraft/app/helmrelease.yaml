@@ -65,10 +65,10 @@ spec:
         secretKey: rcon-password
         serviceType: ClusterIP
     persistence:
-      storageClass: nfs
+      storageClass: emptyDir
       dataDir:
         enabled: true
-        size: 1Gi
+        size: 12Gi
     mcBackup:
       enabled: true
       image: itzg/mc-backup
