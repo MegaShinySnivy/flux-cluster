@@ -98,7 +98,7 @@ spec:
         secretKey: rcon-password
         serviceType: ClusterIP
     persistence:
-      storageClass: csi-ceph-fs
+      storageClass: csi-ceph-blockpool
       dataDir:
         enabled: true
         size: 30Gi
