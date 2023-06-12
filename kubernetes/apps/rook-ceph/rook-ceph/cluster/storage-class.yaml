@@ -25,7 +25,7 @@ allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: csi-ceph-blockpool
+  name: csi-ceph-fs
   annotations:
 provisioner: rook-ceph.cephfs.csi.ceph.com
 parameters:
