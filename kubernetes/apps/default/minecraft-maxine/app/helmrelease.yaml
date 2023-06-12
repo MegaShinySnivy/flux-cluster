@@ -97,11 +97,11 @@ spec:
         existingSecret: rcon-password
         secretKey: rcon-password
         serviceType: ClusterIP
-    persistence:
-      storageClass: csi-ceph-blockpool
-      dataDir:
-        enabled: true
-        size: 1Gi
+    # persistence:
+    #   storageClass: csi-ceph-blockpool
+    #   dataDir:
+    #     enabled: true
+    #     size: 1Gi
     mcBackup:
       enabled: true
       image: itzg/mc-backup
