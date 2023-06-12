@@ -110,4 +110,4 @@ spec:
         storageClass: nfs
         backupdir:
           enabled: true
-          Size: 1Gi
+          Size: 30Gi
