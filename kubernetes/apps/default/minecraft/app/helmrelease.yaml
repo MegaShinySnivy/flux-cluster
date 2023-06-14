@@ -72,8 +72,9 @@ spec:
     mcbackup:
       enabled: true
       backupInterval: 24h
-      image: itzg/mc-backup
-      tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
+      image:
+        repository: itzg/mc-backup
+        tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
       persistence:
         storageClass: nfs
         backupdir:

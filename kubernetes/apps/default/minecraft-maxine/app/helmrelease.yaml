@@ -104,8 +104,9 @@ spec:
         size: 40Gi
     mcbackup:
       enabled: true
-      image: itzg/mc-backup
-      tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
+      image:
+        repository: itzg/mc-backup
+        tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
       storageClass: nfs
       persistence:
         backupdir:
