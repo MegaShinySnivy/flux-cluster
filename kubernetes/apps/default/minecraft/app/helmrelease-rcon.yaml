@@ -42,7 +42,7 @@ spec:
       enabled: true
       className: "nginx"
       annotations:
-        hajimari.io/icon: mdi:cube-scan
+        hajimari.io/icon: mdi:pickaxe
       host: &rcon-host rcon-tf.aurumautomaton.com
       path: /
       pathType: ImplementationSpecific
