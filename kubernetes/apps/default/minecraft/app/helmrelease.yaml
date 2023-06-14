@@ -39,7 +39,7 @@ spec:
       paperDownloadUrl: https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/388/downloads/paper-1.18.2-388.jar
       difficulty: normal
       maxWorldSize: 10000
-      whitelist: AurumAutomaton,Jinx_The_Crazy,_jakewolf,EbuVitae,DaisyDuck1,JayPKaye,FluxCutie,LegatusFlagrans,ScarletCatto,DawnTheDurr,Taowosol,Brandstellefter,Not_Three_Foxes,MarSparks,CarameltehCat,WarmCynder,Cobalt_cat2,Xkilljoy98,Dryptosaurus
+      whitelist: AurumAutomaton,Jinx_The_Crazy,_jakewolf,EbuVitae,DaisyDuck1,JayPKaye,FluxCutie,LegatusFlagrans,ScarletCatto,DawnTheDurr,Taowosol,Brandstellefter,Not_Three_Foxes,MarSparks,CarameltehCat,WarmCynder,Cobalt_cat2,Xkilljoy98,Dryptosaurus,VioletFurBean
       icon: https://cdn.discordapp.com/attachments/1069418678556307456/1070330176312975470/Untitled_02-01-2023_06-42-57_3.png
       ops: AurumAutomaton,Jinx_The_Crazy,Brandstellefter
       allowNether: true
