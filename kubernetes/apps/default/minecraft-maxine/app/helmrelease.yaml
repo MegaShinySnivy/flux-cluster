@@ -101,7 +101,7 @@ spec:
       storageClass: csi-ceph-blockpool
       dataDir:
         enabled: true
-        size: 45Gi
+        Size: 45Gi
     mcbackup:
       enabled: true
       image:
