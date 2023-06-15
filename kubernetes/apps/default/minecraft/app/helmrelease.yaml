@@ -68,7 +68,7 @@ spec:
       storageClass: nfs
       dataDir:
         enabled: true
-        size: 12Gi
+        ize: 12Gi
     mcbackup:
       enabled: true
       backupInterval: 24h
@@ -77,6 +77,6 @@ spec:
         tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
       persistence:
         storageClass: nfs
-        backupdir:
+        backupDir:
           enabled: true
           Size: 1Gi
