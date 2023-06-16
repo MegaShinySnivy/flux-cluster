@@ -75,8 +75,8 @@ spec:
       image:
         repository: itzg/mc-backup
         tag: latest@sha256:3f7c228141995c0abebf8e2b25b85547970401d723bb703b23fde30744aca778
+      storageClass: nfs
       persistence:
-        storageClass: nfs
         backupDir:
           enabled: true
           Size: 1Gi
