@@ -32,7 +32,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: ghcr.io/onedr0p/prowlarr-develop
-      tag: 1.5.2.3484@sha256:4ce09c121f1c5ce64dc626fb86b207a9f66bd7bd9b624a781cac79a42f7768ba
+      tag: 1.6.0.3527@sha256:9354ad9525c39a3b756f57daa837b34e1a9fad75f00093236d5aa6f244a04c33
     env:
       TZ: America/Chicago
       PROWLARR__INSTANCE_NAME: Prowlarr
