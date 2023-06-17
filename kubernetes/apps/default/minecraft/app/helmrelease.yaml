@@ -68,7 +68,7 @@ spec:
       storageClass: nfs
       dataDir:
         enabled: true
-        ize: 12Gi
+        size: 12Gi
     mcbackup:
       enabled: true
       backupInterval: 24h
