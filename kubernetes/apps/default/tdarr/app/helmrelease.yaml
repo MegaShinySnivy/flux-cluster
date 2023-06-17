@@ -87,7 +87,7 @@ spec:
     sidecars:
       node:
         name: node
-        image: docker.io/haveagitgat/tdarr_node:latest@sha256:9f93296f5f000a4918d7a3b4bbbad41b9b0e189284c59bbed7b4d7288b006ad1
+        image: docker.io/haveagitgat/tdarr_node:latest@sha256:986ac38ec84af08eddfbe4352a8aeb999398607700cccb6ce16c74a42c57869f
         env:
           - name: TZ
             value: "America/Chicago"
