@@ -10,7 +10,8 @@ provisioner: nfs.csi.k8s.io
 parameters:
   server: 10.0.30.12
   share: /mnt/THICCBOI1/K8s-NFS/
-reclaimPolicy: Delete
+  subDir: ${pvc.metadata.namespace}-${pvc.metadata.name}-${pv.metadata.name}
+reclaimPolicy: retain
 volumeBindingMode: Immediate
 # Note: The first two options are strictly for NFSv4.2
 mountOptions: ["nfsvers=3", "hard", "noatime", "rw", "user"]
