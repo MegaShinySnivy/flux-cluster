@@ -43,10 +43,10 @@ spec:
           name: sonarr-secret
     service:
       main:
-       enabled: true
-       ports:
-         http:
-           port: &sonarr-port 8989
+        enabled: true
+        ports:
+          http:
+            port: &sonarr-port 8989
     ingress:
       main:
         enabled: true
@@ -70,11 +70,11 @@ spec:
         spec:
           exec:
             command:
-            - /usr/bin/env
-            - bash
-            - -c
-            - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
-              read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
+              - /usr/bin/env
+              - bash
+              - -c
+              - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
+                read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
             failureThreshold: 5
             initialDelaySeconds: 60
             periodSeconds: 10
@@ -89,6 +89,11 @@ spec:
         enabled: true
         mountPath: /tv
         existingClaim: sonarr-tv
+        retain: true
+      downloads:
+        enabled: true
+        mountpath: /downloads-usenet
+        existingClaim: sabnzbd-downloads
         retain: true
     podSecurityContext:
       runAsUser: 568
