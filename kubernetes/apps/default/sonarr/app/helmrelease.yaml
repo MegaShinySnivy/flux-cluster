@@ -92,7 +92,7 @@ spec:
         retain: true
       downloads:
         enabled: true
-        mountpath: /downloads-usenet
+        mountPath: /downloads-usenet
         existingClaim: sabnzbd-downloads
         retain: true
     podSecurityContext:
