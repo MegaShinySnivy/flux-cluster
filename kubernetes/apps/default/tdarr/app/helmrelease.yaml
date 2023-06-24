@@ -74,7 +74,7 @@ spec:
         ingressClassName: "nginx"
         annotations:
           hajimari.io/enable: "true"
-          hajimari.io/icon: mdi:video-input-antenna
+          hajimari.io/icon: mdi:movie-open-edit
         hosts:
           - host: &host "tdarr.${SECRET_DOMAIN}"
             paths:
