@@ -33,12 +33,19 @@ spec:
       repository: itzg/minecraft-server
       tag: latest@sha256:46cef665fc271e99ca8d938daa8b5bd1152c5fd6d818d5068e2c1785b88f35a6
     minecraftServer:
+      # EULA: https://account.mojang.com/documents/minecraft_eula
       eula: true
+      # Minecraft version to install from https://papermc.io/downloads
       version: "1.18.2"
+      # Type of server to run. Valid values are PAPER, SPIGOT, FORGE, FABRIC, VANILLA, BUKKIT, SPONGEVANILLA, SPONGE, MINECRAFT, WATERFALL, FLAMECORD
       type: "PAPER"
+      # Download url for the server jar. Only required for CUSTOM type
       paperDownloadUrl: https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/388/downloads/paper-1.18.2-388.jar
+      # Difficulty of the server. Valid values are peaceful, easy, normal, hard
       difficulty: normal
+      # Maximum world size
       maxWorldSize: 10000
+      # List of whitelisted players
       whitelist: AurumAutomaton,
                  Jinx_The_Crazy,
                  _jakewolf,
@@ -59,21 +66,30 @@ spec:
                  Xkilljoy98,
                  Dryptosaurus,
                  VioletFurBean
+      # URL for server icon
       icon: https://cdn.discordapp.com/attachments/1069418678556307456/1070330176312975470/Untitled_02-01-2023_06-42-57_3.png
+      # List of operators
       ops: AurumAutomaton,Jinx_The_Crazy,Brandstellefter
+      # Allow the nether
       allowNether: true
+      # Whether to announce player achievements
       announcePlayerAchievements: false
+      # Enable command blocks
       enableCommandBlock: true
+      # Generate structures
       generateStructures: true
+      # Whether to enable hardcore mode
       hardcore: false
+      # Maximum build height
       maxBuildHeight: 256
+      # Maximum tick time
       maxTickTime: 60000
+      # View distance
       viewDistance: 10
+      # Spawn protection radius
       spawnProtection: 16
+      # Game mode. Valid values are survival, creative, adventure, spectator
       gameMode: survival
-      levelType: DEFAULT
-      vanillaTweaksShareCodes: 9CIWkF,gquxh9
-      onlineMode: true
       serviceType: LoadBalancer
       servicePort: 62557
       LoadBalancerIP: 10.0.10.122
