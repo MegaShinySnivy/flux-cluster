@@ -91,6 +91,11 @@ spec:
         mountPath: /movies
         existingClaim: radarr-movies
         retain: true
+      downloads:
+        enabled: true
+        mountPath: /downloads-usenet
+        existingClaim: sabnzbd-downloads
+        retain: true
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
