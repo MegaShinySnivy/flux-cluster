@@ -78,6 +78,7 @@ spec:
       enableCommandBlock: true
       generateStructures: true
       hardcore: false
+      levelSeed: -9115858110306877132
       maxBuildHeight: 320
       maxTickTime: 60000000
       viewDistance: 10
