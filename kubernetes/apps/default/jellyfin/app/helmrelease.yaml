@@ -97,6 +97,11 @@ spec:
         existingClaim: sonarr-tv
         retain: true
         mountpath: /tv
+      # anime:
+      #   enabled: true
+      #   existingClaim: sonarr-anime
+      #   retain: true
+      #   mountpath: /anime
       cache:
         enabled: true
         type: emptyDir
