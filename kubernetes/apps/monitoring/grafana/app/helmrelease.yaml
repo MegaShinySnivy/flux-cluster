@@ -38,6 +38,8 @@ spec:
       analytics:
         check_for_updates: false
         check_for_plugin_updates: false
+    deploymentStrategy:
+      type: Recreate
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
