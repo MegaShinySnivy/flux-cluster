@@ -6,7 +6,7 @@ metadata:
   name: sonarr
   namespace: default
 spec:
-  sourcePVC: sonarr-config
+  sourcePVC: sonarr-anime-config
   trigger:
     schedule: "0 0 * * *"
   restic:

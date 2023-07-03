@@ -7,6 +7,7 @@ resources:
   - ./hajimari/ks.yaml
   - ./minio/ks.yaml
   - ./sonarr/ks.yaml
+  - ./sonarr-anime/ks.yaml
   - ./radarr/ks.yaml
   - ./bazarr/ks.yaml
   - ./prowlarr/ks.yaml
