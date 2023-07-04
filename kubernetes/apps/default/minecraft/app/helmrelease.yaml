@@ -31,7 +31,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: itzg/minecraft-server
-      tag: latest@sha256:d3c081730cf98f2a7f3e69f21b4a20415436f0de7a71e2a4af0d4dda5e89d64e
+      tag: latest@sha256:2b4f1c3cd475daa1f768d316e32b206cce0855ccc11ae39924b3fdeedb85621a
     minecraftServer:
       # EULA: https://account.mojang.com/documents/minecraft_eula
       eula: true
