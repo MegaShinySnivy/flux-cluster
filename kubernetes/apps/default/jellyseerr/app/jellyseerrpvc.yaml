@@ -2,19 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jellyfin-config
-  namespace: default
-spec:
-  accessModes: ["ReadWriteOnce"]
-  storageClassName: csi-ceph-blockpool
-  resources:
-    requests:
-      storage: 8Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: jellyfin-plugins
+  name: jellyseerr-config
   namespace: default
 spec:
   accessModes: ["ReadWriteOnce"]
