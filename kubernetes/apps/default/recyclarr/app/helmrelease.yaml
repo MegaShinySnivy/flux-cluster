@@ -35,7 +35,7 @@ spec:
       repository: ghcr.io/recyclarr/recyclarr
       tag: edge@sha256:6ddd404da777a85c5f6608738758529635ef0b1c3fce644cb7e9614c2c5c164e
     command: ["/app/recyclarr/recyclarr"]
-    args: ["sync"]
+    args: ["sync", "--config", "/config/recyclarr.yml"]
     envFrom:
       - secretRef:
           name: sonarr-secret
