@@ -9,7 +9,8 @@
     },
     "yaml.schemas": {
         "ansible": "ansible/*.yml",
-        "Kubernetes": "kubernetes/*.yaml"
+        "Kubernetes": "kubernetes/*.yaml",
+        "https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json": "file:///home/rex/git/flux-cluster/kubernetes/apps/default/recyclarr/app/recyclarr.yaml"
     },
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": true,
