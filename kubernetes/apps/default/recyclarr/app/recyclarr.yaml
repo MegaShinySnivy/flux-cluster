@@ -130,7 +130,6 @@ sonarr:
           - name: WEB-1080p
             score: 0
 # This config file is for use with Sonarr V4 only
-sonarr: # yamllint disable-line rule:key-duplicates
   sonarr-anime:  # A custom name used to identify this particular instance.
     base_url: http://sonarr-anime:8989
     api_key: !env_var SONARR__API_KEY
