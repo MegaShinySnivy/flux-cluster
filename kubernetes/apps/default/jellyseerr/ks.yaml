@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-jellyfin
-  path: ./kubernetes/apps/default/jellyfin/app
+  path: ./kubernetes/apps/default/jellyseerr/app
   prune: true
   sourceRef:
     kind: GitRepository
