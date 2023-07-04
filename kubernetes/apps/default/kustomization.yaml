@@ -10,6 +10,7 @@ resources:
   - ./sonarr-anime/ks.yaml
   - ./radarr/ks.yaml
   - ./bazarr/ks.yaml
+  - ./recyclarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./minecraft/ks.yaml
   - ./tdarr/ks.yaml
