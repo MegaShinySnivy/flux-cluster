@@ -35,7 +35,7 @@ spec:
       tag: latest@sha256:d818ab432f1feb517795b05b11aa01037b7b25084b08a45e1bf56544ee236ba3
     env:
       TZ: America/Chicago
-      JELLYFIN_PublishedServerUrl: https://jellyfin-test.${SECRET_DOMAIN}
+      JELLYFIN_PublishedServerUrl: https://jellyfin.${SECRET_DOMAIN}
     service:
       main:
         ports:
@@ -64,7 +64,7 @@ spec:
           external-dns.alpha.kubernetes.io/target: "ingress.${SECRET_DOMAIN}"
           hajimari.io/icon: mdi:jellyfish
         hosts:
-          - host: &host "jellyfin-test.${SECRET_DOMAIN}"
+          - host: &host "jellyfin.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
