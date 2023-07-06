@@ -32,7 +32,7 @@ spec:
       alwaysTargetBlank: true
       showGreeting: false
       showAppGroups: true
-      showAppStatus: true
+      showAppStatus: false
       showBookmarkGroups: false
       showGlobalBookmarks: false
       showAppUrls: false
