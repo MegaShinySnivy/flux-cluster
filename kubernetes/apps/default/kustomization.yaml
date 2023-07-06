@@ -18,5 +18,5 @@ resources:
   - ./jellyfin/ks.yaml
   - ./jellyseerr/ks.yaml
   - ./minecraft-maxine/ks.yaml
-  - ./thelounge/ks.yML
+  - ./thelounge/ks.yaml
   # some-comment-here..................
