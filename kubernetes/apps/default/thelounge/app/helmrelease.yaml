@@ -20,7 +20,7 @@ spec:
     remediation:
       retries: 3
   upgrade:
-    cleanupOnFail: 3
+    cleanupOnFail: true
     remediation:
       retries: 3
   uninstall:
