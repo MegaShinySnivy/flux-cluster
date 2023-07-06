@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: thelounge-config
+  namespace: default
+spec:
+  accessModes: ["ReadWriteOnce"]
+  storageClassName: csi-ceph-blockpool
+  resources:
+    requests:
+      storage: 8Gi
