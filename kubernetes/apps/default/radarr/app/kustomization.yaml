@@ -4,7 +4,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./radarrpvc.yaml
-  # - ./helmrelease.yaml
+  - ./helmrelease.yaml
   - ./radarrsecret.sops.yaml
   - ./volsyncconf.yaml
   - ./volsyncsecret.sops.yaml
