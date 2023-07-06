@@ -42,7 +42,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          hajimari.io/icon: mdi:television-classic
+          hajimari.io/icon: mdi:send-circle
         hosts:
           - host: &thelounge-host "thelounge.${SECRET_DOMAIN}"
             paths:
