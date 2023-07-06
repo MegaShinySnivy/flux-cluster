@@ -1,109 +1,109 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: sonarr
-  namespace: default
-spec:
-  interval: 15m
-  chart:
-    spec:
-      chart: app-template
-      version: 1.5.1
-      sourceRef:
-        kind: HelmRepository
-        name: bjw-s
-        namespace: flux-system
-  maxHistory: 2
-  install:
-    createNamespace: true
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      retries: 3
-  uninstall:
-    keepHistory: false
-  values:
-    controller:
-      annotations:
-        reloader.stakater.com/auto: "true"
-    image:
-      # -- image repository
-      repository: ghcr.io/onedr0p/sonarr-develop
-      # @default -- chart.appVersion
-      tag: 4.0.0.552@sha256:1ae6cfc2a7fcf7e5f8b35f0462e42a7639d3015b025554d0dae9838846ab5fc6
-      # -- image pull policy
-      pullPolicy: IfNotPresent
-    env:
-      TZ: America/Chicago
-      SONARR__INSTANCE_NAME: Sonarr
-    envFrom:
-      - secretRef:
-          name: sonarr-secret
-    service:
-      main:
-        enabled: true
-        ports:
-          http:
-            port: &sonarr-port 8989
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: nginx
-        annotations:
-          hajimari.io/icon: mdi:television-classic
-        hosts:
-          - host: &sonarr-host "sonarr.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  port: *sonarr-port
-        tls:
-          - hosts:
-              - *sonarr-host
-    probes:
-      liveness:
-        enabled: true
-        custom: true
-        spec:
-          exec:
-            command:
-              - /usr/bin/env
-              - bash
-              - -c
-              - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
-                read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
-            failureThreshold: 5
-            initialDelaySeconds: 60
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 10
-    persistence:
-      config:
-        enabled: true
-        existingClaim: sonarr-config
-        retain: true
-      tv:
-        enabled: true
-        mountPath: /tv
-        existingClaim: sonarr-tv
-        retain: true
-      downloads:
-        enabled: true
-        mountPath: /downloads-usenet
-        existingClaim: sabnzbd-downloads
-        retain: true
-    podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-      fsGroupChangePolicy: OnRootMismatch
-      supplementalGroups: [10000]
-    resources:
-      requests:
-        cpu: 10m
-        memory: 250Mi
-      limits:
-        memory: 2000Mi
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: sonarr
+#   namespace: default
+# spec:
+#   interval: 15m
+#   chart:
+#     spec:
+#       chart: app-template
+#       version: 1.5.1
+#       sourceRef:
+#         kind: HelmRepository
+#         name: bjw-s
+#         namespace: flux-system
+#   maxHistory: 2
+#   install:
+#     createNamespace: true
+#     remediation:
+#       retries: 3
+#   upgrade:
+#     cleanupOnFail: true
+#     remediation:
+#       retries: 3
+#   uninstall:
+#     keepHistory: false
+#   values:
+#     controller:
+#       annotations:
+#         reloader.stakater.com/auto: "true"
+#     image:
+#       # -- image repository
+#       repository: ghcr.io/onedr0p/sonarr-develop
+#       # @default -- chart.appVersion
+#       tag: 4.0.0.552@sha256:1ae6cfc2a7fcf7e5f8b35f0462e42a7639d3015b025554d0dae9838846ab5fc6
+#       # -- image pull policy
+#       pullPolicy: IfNotPresent
+#     env:
+#       TZ: America/Chicago
+#       SONARR__INSTANCE_NAME: Sonarr
+#     envFrom:
+#       - secretRef:
+#           name: sonarr-secret
+#     service:
+#       main:
+#         enabled: true
+#         ports:
+#           http:
+#             port: &sonarr-port 8989
+#     ingress:
+#       main:
+#         enabled: true
+#         ingressClassName: nginx
+#         annotations:
+#           hajimari.io/icon: mdi:television-classic
+#         hosts:
+#           - host: &sonarr-host "sonarr.${SECRET_DOMAIN}"
+#             paths:
+#               - path: /
+#                 pathType: Prefix
+#                 service:
+#                   port: *sonarr-port
+#         tls:
+#           - hosts:
+#               - *sonarr-host
+#     probes:
+#       liveness:
+#         enabled: true
+#         custom: true
+#         spec:
+#           exec:
+#             command:
+#               - /usr/bin/env
+#               - bash
+#               - -c
+#               - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while
+#                 read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
+#             failureThreshold: 5
+#             initialDelaySeconds: 60
+#             periodSeconds: 10
+#             successThreshold: 1
+#             timeoutSeconds: 10
+#     persistence:
+#       config:
+#         enabled: true
+#         existingClaim: sonarr-config
+#         retain: true
+#       tv:
+#         enabled: true
+#         mountPath: /tv
+#         existingClaim: sonarr-tv
+#         retain: true
+#       downloads:
+#         enabled: true
+#         mountPath: /downloads-usenet
+#         existingClaim: sabnzbd-downloads
+#         retain: true
+#     podSecurityContext:
+#       runAsUser: 568
+#       runAsGroup: 568
+#       fsGroup: 568
+#       fsGroupChangePolicy: OnRootMismatch
+#       supplementalGroups: [10000]
+#     resources:
+#       requests:
+#         cpu: 10m
+#         memory: 250Mi
+#       limits:
+#         memory: 2000Mi

@@ -3,7 +3,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: sonarr
+  name: sonarr-anime
   namespace: default
 spec:
   sourcePVC: sonarr-anime-config
