@@ -41,7 +41,6 @@ spec:
       main:
         enabled: true
         annotations:
-          hajimari.io/icon: mdi:send-circle
         hosts:
           - host: &thelounge-host "thelounge.${SECRET_DOMAIN}"
             paths:
