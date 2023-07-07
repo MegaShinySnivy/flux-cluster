@@ -3,16 +3,16 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: prowlarr
+  name: jellyfin
   namespace: default
 spec:
-  sourcePVC: prowlarr-config
+  sourcePVC: jellyfin-config
   trigger:
     schedule: "0 0 * * *"
   restic:
     copyMethod: Snapshot
     pruneIntervalDays: 10
-    repository: restic-config-prowlarr
+    repository: restic-config-jellyfin
     cacheCapacity: 2Gi
     volumeSnapshotClassName: csi-ceph-blockpool
     storageClassName: csi-ceph-blockpool
