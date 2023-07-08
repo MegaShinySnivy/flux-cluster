@@ -33,7 +33,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: itzg/minecraft-server
-      tag: latest@sha256:4d4a5c22c71708e7ae4f6152f7b06a1d920fd57d43c5ca135d2dc63f13765b2c
+      tag: latest@sha256:d733d48c7bf88e94fbc95106906dd60a31ffbad633e939e1e886fae50859ef62
     resources:
       requests:
         memory: 8Gi
