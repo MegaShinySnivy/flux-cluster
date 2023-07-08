@@ -72,6 +72,11 @@ spec:
         mountPath: /movies
         existingClaim: radarr-movies
         retain: true
+      anime:
+        enabled: true
+        mountPath: /anime
+        existingClaim: sonarr-anime
+        retain: true
     resources:
       requests:
         cpu: 10m
