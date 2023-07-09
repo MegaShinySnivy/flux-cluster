@@ -12,7 +12,7 @@ resources:
   - ./bazarr/ks.yaml
   - ./recyclarr/ks.yaml
   - ./prowlarr/ks.yaml
-  - ./minecraft/ks.yaml
+  # - ./minecraft/ks.yaml
   - ./tdarr/ks.yaml
   - ./sabnzbd/ks.yaml
   - ./jellyfin/ks.yaml
