@@ -95,7 +95,7 @@ spec:
         enabled: true
         mountPath: /downloads-usenet
         existingClaim: sabnzbd-downloads
-        retain: true0]
+        retain: true
     resources:
       requests:
         cpu: 10m
